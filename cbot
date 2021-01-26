@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<aiml version="2.0">
+--------------------------------------------------------------------------------
+//DEFAULT TO EVERYTHING
+
+  <category>
+    <pattern>*</pattern>
+    <template>I'm sorry, I didn't understand. If its our first time speaking 
+    please introduce yourself, otherwise try again</template>
+  </category>
+  
+--------------------------------------------------------------------------------  
+//RESPONSES TO HELLO
+
+  <category>
+    <pattern>HELLO _ </pattern>
+    <template>Hello, nice to meet you.  Are you here for career guidance?
+    <think><set name="topic">GUIDANCE</set></think>
+    </template>
+  </category>
+  
+  <category>
+    <pattern>HI _</pattern>
+    <template>Hello, nice to meet you. Are you here for career guidance?
+    <think><set name="topic">GUIDANCE</set></think>
+    </template>
+  </category>
+  
+  <category>
+    <pattern>HI</pattern>
+    <template>Hello, nice to meet you.  Are you here for career guidance?
+    <think><set name="topic">GUIDANCE</set></think>
+    </template>
+  </category>
+  
+  <category>
+    <pattern>HELLO</pattern>
+    <template>Hello, nice to meet you.  Are you here for career guidance?
+    <think><set name="topic">GUIDANCE</set></think>
+    </template>
+  </category>
+  
+ -------------------------------------------------------------------------------
+// GUIDANCE TOPIC
+
+ <topic name="GUIDANCE">
+  <category>
+      <pattern>NO</pattern>
+      <template>Hmm. . Well then why are we talking?  I'm a career bot. . </template>
+  </category>
+ </topic>
+
+
+ <topic name="GUIDANCE">
+  <category>
+      <that>_ GUIDANCE</that>
+      <pattern>YES</pattern>
+      <template>ok great, let's get this thing started.  I am going to ask
+      you a series of questions which I will need you to respond
+      back to with a "yes" or "no" answer.  Reply "next" when
+      you are ready.</template>
+  </category>
+ </topic>
+ 
+ 
+ <topic name="GUIDANCE">
+  <category>
+      <pattern>next</pattern>
+      <template>Perfect.  First Question, do you already know what you
+      would like to do</template>
+  </category>
+ </topic>
+ 
+ <topic name="GUIDANCE">
+  <category>
+      <that>_ DO</that>
+      <pattern>YES</pattern>
+      <template>Well, then I guess this meeting is adjourned. farewell</template>
+  </category>
+ </topic>
+ 
+ <topic name="GUIDANCE">
+  <category>
+      <that>_ DO</that>
+      <pattern>NO</pattern>
+      <template>What I suspected Dear Watson! Lets continue.  I will
+      now present you with a list of options.  If something peaks your
+      interest, please select that option to find out more information.
+      If you are ready, please respond "ready" in the textbox.
+      <think><set name="topic">CAREERS</set></think>
+      </template>
+  </category>
+ </topic>
+
+--------------------------------------------------------------------------------
+
+//CAREER OPTIONS 
+
+
+<topic name="CAREERS">
+  <category>
+    <pattern>READY</pattern>
+    <template>I will now present you a list of 5 choices.  Please select the
+    number which you would like to learn more about.  if you would like
+    to go back to the menu of choices, please type "exit" in the chat.
+    1.) Front-End Engineer
+    2.) Game Engineer
+    3.) Machine Learning Engineer
+    4.) Block-Chain Engineer
+    5.) Cyber-Security Engineer
+    <think><set name="topic">list</set></think>
+    </template>
+</category>
+</topic>
+
+<topic name="LIST">
+  <category>
+    <pattern>EXIT</pattern>
+    <template>I will now present you a list of 5 choices.  Please select the
+    number which you would like to learn more about.  if you would like
+    to go back to the menu of choices, please type "exit" in the chat.
+    1.) Front-End Engineer
+    2.) Game Engineer
+    3.) Machine Learning Engineer
+    4.) Block-Chain Engineer
+    5.) Cyber-Security Engineer
+    <think><set name="topic">list</set></think>
+    </template>
+</category>
+</topic>
+
+----------------------------------------------------------------
+
+// FRONT-END ENGINEER
+
+<topic name="LIST">
+  <category>
+    <pattern>1</pattern>
+    <template>Wise choice!  Let's take a deep dive into the world of the 
+    creative world of the front end engineer!  The front-end engineer has the
+    primary responsibility of the "face" of the application.  They focus on 
+    giving the user a working, functional, and pleasant experience, while 
+    keeping the details abstracted away.  Their primary tools will include 
+    languages such as html, css, and Javascript, as well as a whole host of 
+    other technologies.  But beware, the life of a front-end engineer can be
+    tiresome, as the technologies are rapidly changing.  If you would like to 
+    learn more, press "frontend", else "exit" to return to the previous menu.
+    <think><set name="topic">list</set></think>
+    </template>
+</category>
+</topic>
+
+
+<topic name="LIST">
+  <category>
+    <pattern>frontend</pattern>
+    <template>Great! let's take a closer look into why you may or may not want
+    to head down this career path.  First and foremost, one of the primary 
+    advantages of this path are that when applying for jobs, you will have one
+    of the widest selections, as they all require some permutation of the "stack"
+    mentioned previously.  It should be noted that beyond the fatigue one may
+    experience from keeping up with technologies, you may also be competing with
+    many of the "bootcamp" graduates who focus primarily on frontend technologies.
+    When you are ready, please enter "exit" to return to the main menu.
+    </template>
+</category>
+</topic>
+-------------------------------------------------------------------------------
+
+// GAME ENGINEER
+
+<topic name="LIST">
+  <category>
+    <pattern>2</pattern>
+    <template>Still fantasizing about your childhood dream of playing video-
+    games all day?  Well maybe you won't be playing all day, but you will play
+    an instrumental role in bringing to life the games that people thw world 
+    over will enjoy.  The primary tools of a game engineer are C# and C++, as 
+    well as gaming "engines" such as the famous "unity" engine.  If you would like
+    to learn more about this fascinating field, enter "gamer4life" in the chat,
+    otherwise please enter "exit" to return to the main menu.
+    <think><set name="topic">list</set></think>
+    </template>
+  </category>
+</topic>
+
+
+<topic name="LIST">
+  <category>
+    <pattern>gamer4life</pattern>
+    <template>WHOOSH, WIZZ, POP, BANG!  So you think you've got what it takes to 
+    make a story come to life through code?  Let's dig a little further to find
+    out if its really for you.  Beyond the obvious pro's of working on your 
+    favorite childhood (and maybe adult) dreams, video game designers get to flex
+    their imaginitive sides to push the limits of modern gaming and computing. 
+    Some not so obvious downside that you should be aware of, many engineers are
+    forced to work long hours to make tight deadlines on stretched budgets.
+    Similarly they can be fired at the end of a game cycle, or even worse, should
+    the game have major flaws and poor review they will be let go for that (cough
+    cough, looking at you cyberpunk).  The choice is yours, risk included.  Please
+    enter "exit" to view other field options.
+    </template>
+</category>
+</topic>
+-------------------------------------------------------------------------------
+
+// MACHINE LEARNING ENGINEER
+
+<topic name="LIST">
+  <category>
+    <pattern>3</pattern>
+    <template>Think this chatbot is pretty cool? Hear the machine learning and
+    AI buzzwords and tired of not knowing what all the fuss is about?  
+    Fascinated about predictive sentences in google, or that amazon knows what 
+    you want to buy before you do?  Welcome to the world of the machine learning 
+    engineer.  Utilizing technologies such as python and r, you are able to 
+    "train" your models and harness your algorithmic thinking (thanks c950!) and 
+    help make a more automated and technological advanced society.  If you think
+    you have the brain power please enter "acedstats".
+    <think><set>list</set></think>
+    </template>
+  </category>
+</topic>
+
+
+<topic name="LIST">
+  <category>
+    <pattern>acedstats</pattern>
+    <template>So you think you've got what it takes to create complex mathematical
+    algorithms?  You think you are able to work in the abstract and the theoretical?
+    Well if you happen to have aced all your math classes, it may just be for you.
+    As alluded to many times, this field solves complex problems, using statistics
+    and complex algorithms.  Beyond getting to brag to your friends that you
+    are working in the newest and hottest field, you should also know that you
+    will be handsomely rewarded for your efforts, considering these professionals
+    are some of the highest paid in the software industry.  Hold your horses there!
+    Before you get too excited, you should know that many of these positions require
+    higher levels of education and experience. . . aka PHD.  Similarly, while
+    the media may make these positions sound like a slice of heaven on earth, the 
+    job does require working on long projects that may not work out as soon as you
+    hoped.  After your are finished please press "exit" to return to the menu.
+    </template>
+</category>
+</topic>
+-------------------------------------------------------------------------------
+
+
+// BLOCK-CHAIN ENGINEER
+
+<topic name="LIST">
+  <category>
+    <pattern>4</pattern>
+    <template>Fascinated by bitcoin?  Love finance?  Just want to turn over
+    the traditional banking system?  Your in luck!  The new field of block-
+    chain engineering is still in its infancy and rapidly gaining speed.  Thousands
+    of engineers will be needed to write "smart-contracts" and develop the "blockchain"
+    using new technologies such as etherium as well as the old such as C++.
+    Beyond this more and more cryptocurrencies are being developed as the world
+    looks to replace the traditional forms of currency.  Sounds interesting?
+    If you think you have the wit to flip wallstreet upside down enter
+    "crypto" to proceed.
+    <think><set name="topic">list</set></think>
+    </template>
+  </category>
+</topic>
+
+
+
+<topic name="LIST">
+  <category>
+    <pattern>crypto</pattern>
+    <template>So apparently the thought of staking your career on an unproven 
+    technology hasn't scared you off yet.  Well, the good news for you is that 
+    blockchain engineer are one of the highest paid software engineers in the 
+    market today.  Not only does the role command some of the highest salaries,
+    but their is such demand that finding a job will not likely be very hard.
+    As more and more big finance, tech, and banks try to develop their own 
+    solutions, the market will only continue to explode.  As everything in life,
+    this field does not shy away from its share of risk.  While blockchain is 
+    likely to succeed, there are many who belive it may not see the future success
+    which many are hoping for.  While the underlying blockchain technology is 
+    still highly valuable, it could reduce demand for engineers of this skillset 
+    in the future.  Please press "exit" to return to the menu when finished.
+    </template>
+</category>
+</topic>
+-------------------------------------------------------------------------------
+
+
+// CYBER-SECURITY ENGINEER
+
+<topic name="LIST">
+  <category>
+    <pattern>5</pattern>
+    <template>Always dreamed of being a "hacker"?  The thought of using your
+    powers for good or evil excites you?  Well the role of a cyber security 
+    engineer just may the perfect fit.  These engineers are primarily concerned
+    with finding security to solutions to protect the data of both people and
+    businesses.  There are a multitude of roles within the field of cyber security,
+    each with its own pros and cons.  You will need to master many technologies,
+    but will need a fundamental understanding of languages such as C and sql in 
+    order to prevent attacks at the lowest levels.  If fighting virtual bad 
+    guys sounds like living in a movie to you, please enter "cyberfighter"
+    <think><set name="topic">list</set></think>
+    </template>
+</category>
+</topic>
+
+
+<topic name="LIST">
+  <category>
+    <pattern>cyberfighter</pattern>
+    <template>So you've decided to use your new found powers for good?  Well you
+    should know that you have chosen wisely, as the demand for cybersecurity 
+    professionals is rising rapidly as more and more businesses are shifting 
+    online.  As these companies and people begin storing more and more of their
+    precious data, so too will the criminals follow.  This necessitates a curious
+    mind, and someone who must be willing to "think like the bad guy".  These 
+    engineers are responsible for shielding business from lawsuits and people 
+    from exposing their most private information.  Even a single security leak
+    could cost hundreds of milliions in lawsuits and damages.  But with great
+    responsibility so do does the power and reward.  You will take part in 
+    being a behind the scenes superhero, like batman with a keyboard.  And while
+    nobody may no that you protected them from the bad guy, you can sleep sound
+    knowing your as close to your friendly neighborhood spiderman as you can be.
+    When finished reading (and daydreaming of fighting bad guys) press "exit".
+    </template>
+</category>
+</topic>
+-------------------------------------------------------------------------------
+</aiml>
